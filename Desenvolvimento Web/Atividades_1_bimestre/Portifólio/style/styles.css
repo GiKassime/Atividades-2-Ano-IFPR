@@ -1,0 +1,71 @@
+body{
+    color: aliceblue;
+    background-color: #22092C;
+    font-family:"Oswald", sans-serif;
+}
+*{
+ margin: 0;
+ padding: 0;
+}
+header,main, footer{
+    width: 85%;
+    margin: 0 auto;/*Centralizar caixas na página*/
+}
+h1{
+    font-size: 64px;
+   line-height: 3.5rem; 
+}
+#projetos {
+    text-decoration: none;
+    color: #F05941;
+}
+header{
+    min-width: 100%;
+}
+nav menu{
+    padding: 10px;
+    background-image:linear-gradient(to bottom,#872341,#22092c00);
+
+}
+li a:hover {
+    transition: 0.3s;
+    transform: scale(1.03);
+    background: #872341;
+  }
+nav menu li{ 
+    display: inline-block;
+    margin-left: 14.5rem;
+}
+
+nav menu li a{ 
+    display: block;
+    color: white;
+    font-size: 2rem ;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+}
+nav menu li img{
+    display: inline-block;
+   
+   
+}
+section{
+    box-sizing: border-box;
+    float: left;
+}
+.secao-conteudo{
+    width: 80%;
+ 
+}
+.principal:hover{
+    transition-delay: 0.5s;
+    transition-duration: 2s;
+}
+.secao-imagem{
+    width: 20%;
+}
+div{
+    display: inline-block;
+  }
+
