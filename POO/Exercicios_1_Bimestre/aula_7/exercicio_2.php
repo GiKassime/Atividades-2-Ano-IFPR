@@ -26,9 +26,12 @@ class Pokemon{
         echo "O animal batalhou";
     } 
     private function aumentarNivel(){
-        echo "O nível atual do ". $this->nome." é ".$this->$nivel; 
+        $this->nivel += 1;
+        echo "Nivel aumentado";
     }  
     public function aumentarExperiencia(){
+        $this->experiencia += 1;
+        if($this->esperiencia)
         echo "A experiencia aumentada";
     } 
     public function aumentarPontosDeVida(){
