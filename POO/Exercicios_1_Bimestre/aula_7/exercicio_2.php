@@ -10,7 +10,8 @@ class Pokemon{
         $this->velocidade = $velocidade;
         $this->nivel = $nivel;
         $this->experiencia = $experiencia;
-        $this->pontosDeVida = $pontosDeVida;$this->defesa = $defesa;
+        $this->pontosDeVida = $pontosDeVida;
+        $this->defesa = $defesa;
     }
     public function fichaPokemon(){
         echo "\nO nome do pokemon é ". $this->nome;
