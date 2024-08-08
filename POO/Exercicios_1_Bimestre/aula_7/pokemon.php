@@ -21,7 +21,7 @@ class Pokemon {
     }
     //To string
      function __toString(){
-        $texto .= "\nNome -> ". $this->nome;
+        $texto = "\nNome -> ". $this->nome;
         $texto .= "\nTipo -> ". $this->tipo; 
         //$texto .= "\nAtaque ->". $this->ataque;
         //$texto .= "\nVelocidade -> ". $this->velocidade;
