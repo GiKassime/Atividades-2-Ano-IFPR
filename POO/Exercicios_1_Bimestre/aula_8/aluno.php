@@ -1,9 +1,9 @@
 <?php 
  class Aluno{
     //Atributos
-    private $nome;
-    private $nota1;
-    private $nota2;
+    private string $nome;
+    private int $nota1;
+    private int $nota2;
     //Métodos
     public function __construct($nome,$nota1,$nota2) {
         $this->setNota1($nota1);

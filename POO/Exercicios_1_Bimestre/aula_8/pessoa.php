@@ -1,11 +1,11 @@
 <?php 
  class Pessoa{
     //Atributos
-    private $nome;
-    private $endereco;
-    private $cidade;
-    private $uf;
-    private $altura;
+    private string $nome;
+    private string $endereco;
+    private string $cidade;
+    private string $uf;
+    private string $altura;
     //Métodos
 
     //GET AND SETTERS

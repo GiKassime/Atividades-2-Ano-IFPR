@@ -2,15 +2,15 @@
 
 class Livro {
     //Atributos
-    private $titulo;
-    private $autor;
-    private $genero;
-    private $num_paginas;
+    private string $titulo;
+    private string $autor;
+    private string $genero;
+    private int $num_paginas;
     //Métodos
     public function __construct($titulo,$autor,$genero,$num_paginas) {
         $this->setTitulo($titulo);
         $this->setAutor($autor);
-        $this->setTitulo($genero);
+        $this->setGenero($genero);
         $this->setNumPaginas($num_paginas);
     }
     public function getDados(){
@@ -102,7 +102,7 @@ for ($i=0; $i < count($arrayLivros); $i++) {
         $livroMaior = $livro[$i];
   }
 }*/
-foreach ($arrayLivros as $livro) {
+foreach (array_slice($arrayLivros,1) as $livro) {
     if ($livro->getNumPaginas() > $livroMaior->getNumPaginas()) {
         $livroMaior = $livro;
     }
