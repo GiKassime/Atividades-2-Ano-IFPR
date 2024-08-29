@@ -12,7 +12,7 @@ class Pessoa{
     }
     public function __toString()
     {
-        return sprintf("%s %s, %d anos",$this->getNome(),$this->getSobrenome(),$this->getIdade());
+        return sprintf(" %s %s, %d anos",$this->getNome(),$this->getSobrenome(),$this->getIdade());
     }
     /**
      * Get the value of nome
@@ -87,8 +87,8 @@ while (true) {
                     echo "\nLista vazia\n";
                     }else{
                         echo "\nLista\n";
-                        foreach ($lista as $pessoa) {
-                        echo $pessoa. "\n";
+                        foreach ($lista as $i => $pessoa) {
+                        echo ($i+1) . $pessoa. "\n";
                         }
                     }
                  break;
