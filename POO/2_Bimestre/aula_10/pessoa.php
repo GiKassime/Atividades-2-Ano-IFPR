@@ -71,7 +71,7 @@ class Pessoa{
 $lista = array();
 while (true) {
   do {
-    echo"\n1- Cadastrar Pessoas\n2-Listar Pessoas\n0-SAIR\n";
+    echo"\n****Menu****\n1- Cadastrar Pessoas\n2-Listar Pessoas\n0-SAIR\n";
     $op = readline("Escolha uma opção: ");
            switch ($op) {
                case '1':
