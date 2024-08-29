@@ -78,8 +78,8 @@ for ($i=0; $i < 4; $i++) {
     array_push($escolas, new Escola($nome,$endereco,$qtdAlunos));
 }
 //1.2 resolvendo
-foreach ($escolas as $escola ) {
-    echo "\nEscola ".$escola->getNome();
+foreach ($escolas as $i => $escola ) {
+    echo "\n".($i+1)."- Escola";
     echo  $escola."\n";
 }
 //1.3 resolvendo
