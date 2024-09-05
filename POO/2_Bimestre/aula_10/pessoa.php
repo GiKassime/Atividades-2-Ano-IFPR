@@ -71,7 +71,7 @@ class Pessoa{
 $lista = array();
 while (true) {
   do {
-    echo"\n****Menu****\n1- Cadastrar Pessoas\n2-Listar Pessoas\n0-SAIR\n";
+    echo"\n****Menu****\n1- Cadastrar Pessoa\n2-Listar Pessoas\n3-Excluir Pessoa\n0-SAIR\n";
     $op = readline("Escolha uma opção: ");
            switch ($op) {
                case '1':
@@ -90,6 +90,24 @@ while (true) {
                         foreach ($lista as $i => $pessoa) {
                         echo ($i+1) . $pessoa. "\n";
                         }
+                    }
+                 break;
+                 case '3':
+                    if (!count($lista)) {
+                    echo "\nLista vazia\n";
+                    }else{
+                        echo "\nLista\n";
+                        foreach ($lista as $i => $pessoa) {
+                        echo ($i+1) . $pessoa. "\n";
+                        }
+                        $pessoa_excluida = readline("Digite o número da pessoa a ser excluida:");
+                        if ($pessoa_excluida > count($lista) || $pessoa_excluida < count($lista)) {
+                            echo"\nPessoa não cadastrada!!!\n";
+                        }else{
+                            echo "\n".$lista[($pessoa_excluida - 1)]." FOI EXCLUIDO!\n";
+                            array_splice($lista,($pessoa_excluida - 1));
+                        }
+                        
                     }
                  break;
                case '0':
