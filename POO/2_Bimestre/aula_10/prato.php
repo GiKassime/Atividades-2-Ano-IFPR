@@ -87,7 +87,7 @@ for ($i=0; $i < 3; $i++) {
 }
 $valortotal = 0;
 foreach ($pratos as $prato) {
-     echo $prato;
-     $valortotal += $prato->getValorTotal();
+    echo $prato;
+    $valortotal += $prato->getValorTotal();
 }
 echo "\nO valor total da janta é ". $valortotal;

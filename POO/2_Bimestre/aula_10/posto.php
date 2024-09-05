@@ -12,7 +12,7 @@ class Posto{
     public function abastecer(int $litros){
         if($this->litrosGasolina >= $litros){
             $this->litrosGasolina -= $litros;
-           array_push($this->abastecimentosGasolina,$litros);
+            array_push($this->abastecimentosGasolina,$litros);
             return true;
         }else{
             return false;
@@ -61,11 +61,11 @@ class Posto{
 
 $obPosto = new Posto();
 while (true) {
-  do {
+    do {
     echo"\n\n****Menu****\n1-Abastecer\n2-Repor Estoque\n3-Listar Abastecimentos\n0-SAIR\n";
     $op = readline("Escolha uma opção: ");
-           switch ($op) {
-               case '1':
+            switch ($op) {
+                case '1':
                 echo "\nO posto tem disponivel ". $obPosto->getLitrosGasolina()."L de Gasolina\n";
                     $litros =  readline("Quantos litros quer abastecer?: ");if ($litros <= 0 || !is_numeric($litros)) {
                         echo "\nValor inválido";
@@ -77,29 +77,28 @@ while (true) {
                         echo "\nNão há essa quantidade de gasolina disponivel no posto no momento!!";
                     }
                     
-                   break;
-               case '2':
-                   $litros =  readline("Quantos litros quer repor?: ");
-                   if ($litros <= 0 || !is_numeric($litros)) {
+                break;
+                case '2':
+                    $litros =  readline("Quantos litros quer repor?: ");
+                    if ($litros <= 0 || !is_numeric($litros)) {
                         echo "\nValor inválido";
                         break;
                     }
-                   
                     echo $obPosto->reporEstoque($litros);
-                 break;
-               case '3':
+                break;
+                case '3':
                     foreach ($obPosto->getAbastecimentosGasolina() as $key => $abastecimento) {
                         echo "\nAbastecimento ". ($key + 1)." :". $abastecimento." litros";
                     }
-                 break;
-               case '0':
-                   echo "\nSaindo......";
-                   die();
-                   break;
-               default:
-                   echo "\nValor inválido\n";
-                   break;
-           }
+                break;
+                case '0':
+                    echo "\nSaindo......";
+                    die();
+                    break;
+                default:
+                    echo "\nValor inválido\n";
+                    break;
+                }
     } while ($op != 0);
 
 
