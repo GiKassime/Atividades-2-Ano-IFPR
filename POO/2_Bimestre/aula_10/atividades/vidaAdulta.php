@@ -48,7 +48,7 @@ class Receita{
     }  
 }
 
-class Despesa extends Receita{
+class Despesa {
     private string $descricao;
     private float $valor;
     
