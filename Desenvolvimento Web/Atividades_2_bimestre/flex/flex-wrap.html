@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="default.css">
+    <title>FLexBox</title>
+    <style>
+        .flex-container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .flex-container div{
+            flex:1;
+        }
+        .flex-container .red{
+            flex:5;
+        }
+        .flex-container .yellow{
+            order:-1;
+        }
+    </style>
+</head>
+<body>
+    <h1>FLexBox</h1>
+    <h2>Flex Container</h2>
+    <div class="flex-container">
+        <div class="red">RED</div> 
+        <div class="green">GREEN</div>
+        <div class="blue">BLUE</div>
+        <div class="yellow">YELLOW</div>
+    </div>
+    
+</body>
+</html>
