@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --ametist-color: #9b59b6; 
+    --sunflower-color: #f1c40f; 
+    --carrot-color: #e67e22; 
+}
+
+body {
+    background: #e8e7e7;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+h1, h2, h3 {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.container  {
+    background: #ffffff;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    overflow: hidden ;
+    max-width: 100%;
+    /* realizar atividade */
+}
+
+.menu ul {
+    margin: 20px 10px 10px 10px;
+}
+
+.menu ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.menu-responsivo {
+    padding: 10px;
+    font-size: 32px;
+    display: none;
+    /* realizar atividade */
+}
+
+.caixa-container {
+    width: 25%;
+    float: left;
+    max-width: 100%;
+
+}
+
+
+.caixa {
+    min-height: 200px;
+
+    margin: 10px;
+    padding: 10px;
+
+    text-align: center;
+    line-height: 150px;
+
+    background: #27ae60;
+    color: #fff;
+
+}
+
+/* Para resoluções de até 992px */
+@media screen and (max-width: 992px) {
+    body{
+        background-color: var(--ametist-color);
+    }
+    .container{
+        width: 768px;
+    }
+    .caixa-container{
+        width: 33.33%;
+    }
+}
+
+/* Para resoluções de até 768px */
+
+@media screen and (max-width: 768px) {
+    body{
+        background-color: var(--ametist-color);
+    }
+    .container{
+        width: 576px;
+    }
+    .caixa-container{
+        width: 50%;
+    }
+}
+
+/* Para resoluções de até 576px */
+
+@media screen and (max-width: 576px) {
+    body{
+        background-color: var(--carrot-color);
+    }
+    .container{
+        width: 90%;
+    }
+    .caixa-container{
+        width: 100%;
+    }
+    .menu-responsivo{
+        display: block;
+    }
+    .menu{
+        display: none;
+    }
+}
