@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="default.css">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            flex-grow: 1;
+            gap:10px;
+            text-align: center;
+        }
+        .container div{
+            width: 100%;
+            color: black;
+        }
+        .esquerda-direita{
+            flex-direction: row;
+            
+        }  
+        .direita-esquerda{
+            flex-direction: row-reverse;
+            justify-content: start;
+        }
+        .cima-baixo {
+            flex-direction: column;
+        }
+        .baixo-cima{
+            flex-direction: column-reverse;
+        }
+        .container-item{
+            display: flex;
+            width: 600px;
+            background-color: cadetblue;
+            height: 500px;
+            flex-direction: row;
+            flex-wrap:wrap;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .container-item div{
+            border: 2px dotted black;
+            color: black;
+            width: 200px;
+            height: 70px;
+            background-color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        } 
+        .container-item div:nth-child(4){
+            color: black;
+            width: 100px;
+            height: 35px;
+            align-self: flex-end;
+            margin-left: 100px;
+            background-color: rgb(103, 68, 122);
+        }
+    </style>
+</head>
+<body> 
+    <h2>Da esqueda para a direita</h2>
+    <div class="container esquerda-direita">
+        <div class="red">Batatinha</div>
+        <div class="blue">Batatão</div>
+        <div class="yellow">batatonha</div>
+        <div class="green">Batata</div>
+        <div class="purple">Batinha</div>
+    </div>  
+    <h2>Da direita para a esquerda</h2>
+    <div class="container direita-esquerda">
+        <div class="red">Batatinha</div>
+        <div class="blue">Batatão</div>
+        <div class="yellow">batatonha</div>
+        <div class="green">Batata</div>
+        <div class="purple">Batinha</div>
+    </div>  
+    <h2>De cima para baixo</h2>
+    <div class="container cima-baixo">
+        <div class="red">Batatinha</div>
+        <div class="blue">Batatão</div>
+        <div class="yellow">batatonha</div>
+        <div class="green">Batata</div>
+        <div class="purple">Batinha</div>
+    </div>  
+    <h2>De baixo para cima</h2>
+    <div class="container baixo-cima">
+        <div class="red">Batatinha</div>
+        <div class="blue">Batatão</div>
+        <div class="yellow">batatonha</div>
+        <div class="green">Batata</div>
+        <div class="purple">Batinha</div>
+    </div>  
+    
+    <h2>Alinhando itens</h2>
+    <div class="container-item">
+        <div class="red">
+            1
+        </div>
+        <div class="blue">2</div>
+        <div class="yellow">3</div>
+        <div class="green">4</div>
+    </div> 
+    
+</body>
+</html>

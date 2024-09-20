@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(41, 41, 41);
+            overflow-x: hidden;
+        }
+        .container-main{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 50%;
+            display: flex;
+            background-color: rgb(214, 214, 214);
+            flex-direction: column;
+            align-items: center;
+        }
+        .container div{
+            padding-top: 2%;
+        }
+        h2{
+            color: black;
+        }
+        body{
+            color: black;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="container-main">
+        <div class="container">
+            <h2>Formulario</h2>
+            <form action="#"> <div>
+                <label for="field_nome">Nome:</label>
+                <input type="text"  id="field_nome"  name="field_nome">
+           </div>
+           <div>
+               <label for="field_idade">Idade:</label>
+               <input type="number" id="field_idade" name="field_idade" min="0" max="150">
+           </div>
+           <div>
+               <label for="field_arquivo">Arquivo:</label>
+               <input type="file"  id="field_arquivo" accept="image/*" src="user" name="field_arquivo">
+          </div>
+          <div>
+           <label for="field_idade">Manhã<input type="radio" name="field_turno" ></label>
+           <label for="field_idade">Tarde <input type="radio" name="field_turno" ></label>
+           <label for="field_idade">Tarde <input type="radio" name="field_turno" ></label>
+               
+           </div>
+           
+           <div>
+               <label for="id_prato">
+                   Prato principal<input type="checkbox" value="prato_principal" name="opcoes" checked>
+               </label>
+               <label for="">
+                   Salada<input type="checkbox" value="salada" name="opcoes">
+               </label>
+               <label for="">
+                   Sobremesa<input type="checkbox" value="sobremesa" name="opcoes">
+               </label>
+           </div>
+           <div>
+               <select name="cor_favorita" id="cor-favorita" required>
+                   <option value="">Selecione uma opção</option>
+                   <option value="verde">Verde</option>
+                   <option value="vermelho">Vermelho</option>
+                   <option value="azul">Azul</option>
+               </select>
+               
+           </div>
+           <div>
+              <textarea name="" id="" cols="30" rows="10"></textarea>
+           </div>
+           <div>
+               <input type="submit">
+           </div>
+           </form>
+         </div>
+    </div>
+    
+</body>
+</html>
