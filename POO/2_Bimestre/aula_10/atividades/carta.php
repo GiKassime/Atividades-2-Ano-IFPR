@@ -76,25 +76,36 @@ class Carta {
     }
 
 }
+//Programa principal
 //inicializando algumas variaveis
-$naipe = array("Paus","Copas","Ouros","Espadas");
+$naipes = array("Paus","Copas","Ouros","Espadas");
 $continuar = true;
 echo "\nBEM VINDO AO JOGO DE ADIVINHAÇÃO DE CARTAS DE UM BARALHO,\n";
+//laço caso a pessoa quisercontinuar jofando
 while ($continuar) {
     $baralho = array(); // REINICIA O BARALO
     $quantCartas = 0;
-
     do {
-        $quantCartas = readline("Escolha uma quantidade de cartas entre 2 e 52 para começar: ");//Usuário escolhe a quantidade de cartas
-    } while ($quantCartas < 2 || $quantCartas > 52);  
+        $quantCartas = readline("Escolha uma quantidade de cartas entre 7 e 52 para começar: ");//Usuário escolhe a quantidade de cartas
+    } while ($quantCartas < 7 || $quantCartas > 52);  
     $chances = intdiv($quantCartas, 2);//aqui eu quero que retorne só o inteiro da divisão, para por exemplo em casos que a pessoa escolha um número ímpar, a chance n fique um float
     $dica = 3;
-    for ($i=0; $i < $quantCartas; $i++) { 
-        $baralho[] = new Carta(rand(1,13), $naipe[rand(0,3)]);//sorteia um número de carta de 1 a 13 e depois um naipe do array naipe considerandos os indices 0 a 3
+    for ($i = 0; $i < $quantCartas; $i++) {   
+        do { 
+            $numero = rand(1, 13); 
+            $naipe = $naipes[rand(0, 3)]; // Sorteia um naipe
+            $existe = false;
+                foreach ($baralho as $carta) {
+                if ($carta->getNumero() == $numero && $carta->getNome() == $naipe) {
+                    $existe = true;
+                    break; // Se existir, não precisa continuar verificando
+                }
+            }
+        } while ($existe); // Repete até encontrar uma carta que não existe
+        // Adiciona carta 
+        $baralho[] = new Carta($numero, $naipe); 
     }
-    $cartaSorteada = array_rand($baralho,1);//sorteia um objeto Carta por índice array baralho
-    $cartaSorteada = array_rand($baralho, 1);
-    
+    $cartaSorteada = array_rand($baralho,1);//sorteia um objeto Carta por índice array baralho  
     do {
         echo "\n" . str_repeat("=", 40) . "\n";
         echo "                 CARTAS          \n";
@@ -117,15 +128,19 @@ while ($continuar) {
         echo sprintf("       CHANCES: %2d  |  DICAS: %2d     ", $chances, $dica) . "\n";
         echo str_repeat("-", 40)."\n" ;
         $opcao = readline("ESCOLHA UMA OPÇÃO: ");
-
+        //switch para escolher dica, jogar ou desistir
         switch ($opcao) {
             case 1: // DICAS
                 echo str_repeat("-", 40) . "\n";
                 if ($dica > 0) {
                     echo "DICA -> ". $baralho[$cartaSorteada]->gerarDica($dica, $cartaSorteada + 1, $quantCartas)."\n";
                     $dica--;
+                    echo "\npressione enter para continuar";
+                    fgets(STDIN);
                 } else {
                     echo "\nACABARAM SUAS DICAS :(\n";
+                    echo "\npressione enter para continuar";
+                    fgets(STDIN);
                 }
                 echo str_repeat("-", 40) . "\n";
                 break;
@@ -145,6 +160,8 @@ while ($continuar) {
                     } else {
                         echo "\nTente outra vez :)\n";
                     }
+                    echo "\npressione enter para continuar";
+                    fgets(STDIN);
                 }
                 break;
             case 3: // DESISTIR
@@ -170,5 +187,5 @@ while ($continuar) {
         echo "Opção inválida.\n";
         break;
 }
-    
 }
+

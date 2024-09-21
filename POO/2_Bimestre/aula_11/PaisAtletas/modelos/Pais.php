@@ -4,6 +4,11 @@ class Pais {
     private string $nome;
     private string $continente;
 
+
+    public function __construct($nome,$continente) {
+        $this->nome = $nome;
+        $this->continente = $continente;
+    }
     /**
      * Get the value of nome
      */
