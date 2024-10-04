@@ -2,19 +2,17 @@
 require_once 'Prato.php';
 class Pedido {
     private string $nomeCliente;
-    private int $numero;
     private string $nomeGarcom;
     private Prato $prato;
     
-    public function __construct($nomeCliente,$nomeGarcom,$prato,$numero) {
+    public function __construct($nomeCliente,$nomeGarcom,$prato) {
         $this->nomeCliente = $nomeCliente;
         $this->nomeGarcom = $nomeGarcom;
         $this->prato = $prato;
-        $this->numero = $numero;
     }
     public function __toString()
     {
-        return sprintf("\n%d - O cliente %s, foi atendido pelo garçom %s, pediu um prato de %s no valor de R$%.2f",$this->numero,$this->nomeCliente,$this->nomeGarcom,$this->prato->getNome(),$this->prato->getValor() );
+        return sprintf(" - O cliente %s, foi atendido pelo garçom %s, pediu um prato de %s no valor de R$%.2f",$this->nomeCliente,$this->nomeGarcom,$this->prato->getNome(),$this->prato->getValor() );
     } 
     /**
      * Get the value of nomeCliente
@@ -66,24 +64,6 @@ class Pedido {
     public function setPrato(Prato $prato): self
     {
         $this->prato = $prato;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of numero
-     */
-    public function getNumero(): string
-    {
-        return $this->numero;
-    }
-
-    /**
-     * Set the value of numero
-     */
-    public function setNumero(string $numero): self
-    {
-        $this->numero = $numero;
 
         return $this;
     }

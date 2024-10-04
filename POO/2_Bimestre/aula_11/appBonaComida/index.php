@@ -4,18 +4,23 @@ require_once 'models/Pedido.php';
 //FUNÇÃO PARA LISTAR ITENS DENTRO DE UM ARRAY
 function listar($array){
     if (count($array) > 0) {
-        foreach ($array as $valor) {
-        echo "\n". $valor;
+        foreach ($array as $key => $valor) {
+            if (property_exists($valor,"numero")) {//FIZ ISSO PRA USAR A FUNÇÃO PARA PEDIDOS E PARA PRATOS, O DO PRATO ELE PEGA PELO ATRIBUTO
+                echo "\n". $valor;
+            }else{//O DOS PEDIDOS ELE USA O INDICE DO ARRAY MSM
+                echo "\n". ($key +1). $valor;
+            }
         }
     }else {
         echo "\nNão há nada cadastrado\n";
     }
 }
-//FUNÇÃO PARA BUSCAR ALGO DENTRO DO ARRAY
+//FUNÇÃO PARA BUSCAR ALGO DENTRO DO ARRAY 
 function busca($array,$resposta){
-        foreach ($array as $value) {
-            if($value->getNumero() == $resposta){
-                return $value;
+
+        foreach ($array as  $valor) {
+            if ($valor->getNumero() == $resposta) {
+                return $valor;
             }
         }
         return null;
@@ -47,7 +52,7 @@ do {
             while($prato == null){
                 $prato = busca($pratos,readline("Informe o número do prato: "));
             }
-            array_push($pedidos, new Pedido($nomeCliente,$nomeGarcom, $prato, (count($pedidos)+1)));
+            array_push($pedidos, new Pedido($nomeCliente,$nomeGarcom, $prato));
             echo "\n----------PEDIDO CADASTRADO----------\n";
             break;
         case 2:
@@ -55,11 +60,8 @@ do {
             echo "\n---------------PEDIDOS FEITOS--------------\n";
             listar($pedidos);
             echo "\n";
-            $pedido = null;
-            while($pedido == null){
-                $pedido = busca($pedidos,readline("Qual o índice do pedido a ser excluido? : "));
-            }
-            array_splice($pedidos,$pedido->getNumero() - 1);
+            $pedido = readline("Qual o índice do pedido a ser excluido? : ");
+            array_splice($pedidos,$pedido - 1,1);
             echo "\n----------PEDIDO EXCLUIDO----------\n";
 
         break;
