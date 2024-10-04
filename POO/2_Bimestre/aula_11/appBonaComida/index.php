@@ -18,9 +18,12 @@ function listar($array){
 //FUNÇÃO PARA BUSCAR ALGO DENTRO DO ARRAY 
 function busca($array,$resposta){
 
-        foreach ($array as  $valor) {
+        foreach ($array as  $key =>$valor) {
             if ($valor->getNumero() == $resposta) {
                 return $valor;
+            }
+            if ($key + 1 == $resposta) {
+                return $resposta;
             }
         }
         return null;
@@ -60,7 +63,10 @@ do {
             echo "\n---------------PEDIDOS FEITOS--------------\n";
             listar($pedidos);
             echo "\n";
-            $pedido = readline("Qual o índice do pedido a ser excluido? : ");
+            $pedido = null;
+            while($prato == null){
+                $pedido = busca($pedidos,readline("Qual o índice do pedido a ser excluido? : "));
+            }
             array_splice($pedidos,$pedido - 1,1);
             echo "\n----------PEDIDO EXCLUIDO----------\n";
 

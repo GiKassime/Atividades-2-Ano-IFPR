@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        p {
+            margin: 0;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="fundo">
+        <p id="p">WADDLES</p>
+        <img id="waddles" src="https://i.pinimg.com/564x/0f/d1/ac/0fd1ac34692c38ecc289ee34922c4d75.jpg" alt="">
+    </div>
+    
+    <script>
+        let p = document.getElementById('p');
+        let fundo = document.getElementById('fundo');
+        let waddles = document.getElementById('waddles');
+        waddles.addEventListener('click',function e() {
+            p.innerText = "OINC!"
+            fundo.style.backgroundColor = "yellow";
+
+        }) 
+        waddles.addEventListener('mouseenter',function e() {
+            p.innerText = "ai minha barriguinha!"
+            fundo.style.backgroundColor = "grey";
+
+        }) 
+        waddles.addEventListener('mouseleave',function e() {
+            p.innerText = "WADDLES!"
+            fundo.style.backgroundColor = "pink";
+        })
+    </script>
+</body>
+</html>

@@ -7,11 +7,29 @@
     
 </head>
 <body>
-    <h1>Hello World</h1>
+    <h1 id="texto"></h1>
+    <div class="caixas">A</div>
+    <div class="caixas">A</div>
+    <div class="caixas">A</div>
+    <p>e</p>
+    <p>e</p>
+    <p>e</p>
+    <p>e</p>
+    <p>e</p>
+    <p id="texto">e</p>
+    <button >
+        CLICA AQUI ZÉ
+    </button>
     <script>
-        let elementos = document.getElementsByTagName('h1');
-        elementos[1].innerText = "A VIDA NÃO É BOAA"
-        console.log(elementos);
+        let caixas = document.getElementsByClassName('caixas');
+        let texto = document.getElementById('texto');
+        for (let index = 0; index < caixas.length; index++) {
+            caixas[index].style.backgroundColor = "red";
+        }
+
+        let paragrafos = document.getElementsByTagName('p');
+        paragrafos[2].innerText = "TEXTO aLTERADO";
+        texto.innerText = "UNGEEEEEEEEEEEEEEEEEEEE";
     </script>
 </body>
 </html>
