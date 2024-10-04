@@ -1,17 +1,17 @@
 <?php 
 require_once 'models/Prato.php';
 require_once 'models/Pedido.php';
-
+//FUNÇÃO PARA LISTAR ITENS DENTRO DE UM ARRAY
 function listar($array){
     if (count($array) > 0) {
         foreach ($array as $valor) {
         echo "\n". $valor;
         }
-    }else{
+    }else {
         echo "\nNão há nada cadastrado\n";
     }
-    
 }
+//FUNÇÃO PARA BUSCAR ALGO DENTRO DO ARRAY
 function busca($array,$resposta){
         foreach ($array as $value) {
             if($value->getNumero() == $resposta){
@@ -19,7 +19,8 @@ function busca($array,$resposta){
             }
         }
         return null;
-}
+} 
+//ARRAY DE PRATOS E PEDIDOS
 $pratos = array(
     new Prato(1,"Camarão a Milanesa", 110),
     new Prato(2,"Pizza Margherita", 80), 
@@ -27,12 +28,12 @@ $pratos = array(
     new Prato(4,"Bife a Parmegiana", 75),
     new Prato(5,"Risoto ao Funghi",70)
 );
-
 $pedidos = array();
-
 do {
+    //MENU
     echo"\n----------MENU----------\n1- Cadastrar Pedido\n2-Cancelar Pedido\n3-Listar Pedidos\n4-Total de vendas\n0-SAIR\n";
     $resposta = readline("Digite sua resposta: ");
+    //OPCOES
     switch ($resposta) {
         case 1:
             //Cadastrar
@@ -58,7 +59,7 @@ do {
             while($pedido == null){
                 $pedido = busca($pedidos,readline("Qual o índice do pedido a ser excluido? : "));
             }
-            unset($pedidos[($pedido->getNumero() - 1)]);
+            array_splice($pedidos,$pedido->getNumero() - 1);
             echo "\n----------PEDIDO EXCLUIDO----------\n";
 
         break;
@@ -84,6 +85,3 @@ do {
         break;
     }
 } while ($resposta != 0);
-
-
-?>
