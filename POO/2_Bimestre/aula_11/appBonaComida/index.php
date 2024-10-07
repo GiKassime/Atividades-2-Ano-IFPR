@@ -2,29 +2,32 @@
 require_once 'models/Prato.php';
 require_once 'models/Pedido.php';
 //FUNÇÃO PARA LISTAR ITENS DENTRO DE UM ARRAY
-function listar($array){
+function listar($array,$texto){
     if (count($array) > 0) {
         foreach ($array as $key => $valor) {
-            if (property_exists($valor,"numero")) {//FIZ ISSO PRA USAR A FUNÇÃO PARA PEDIDOS E PARA PRATOS, O DO PRATO ELE PEGA PELO ATRIBUTO
-                echo "\n". $valor;
-            }else{//O DOS PEDIDOS ELE USA O INDICE DO ARRAY MSM
-                echo "\n". ($key +1). $valor;
-            }
+                echo "\n". $key+1 . $valor;
         }
     }else {
-        echo "\nNão há nada cadastrado\n";
+        echo "\nNão há ".$texto ." cadastrado\n";
     }
 }
-//FUNÇÃO PARA BUSCAR ALGO DENTRO DO ARRAY 
-function busca($array,$resposta){
 
-        foreach ($array as  $key =>$valor) {
-            if ($valor->getNumero() == $resposta) {
-                return $valor;
-            }
-            if ($key + 1 == $resposta) {
-                return $resposta;
-            }
+
+//FUNÇÃO PARA BUSCAR O PEDIDO DO ARRAY PEDIDO
+function buscaPedido($array,$resposta){
+        foreach ($array as  $key =>$valor){
+                if ($key + 1 == $resposta) {
+                    return $resposta;
+            } 
+        }
+        return null;
+} 
+//FUNÇÃO PARA BUSCAR O PRATO DO ARRAY COM OBJETOS PRATOS
+function buscaPrato($array,$resposta){
+        foreach ($array as $valor){
+                if ($valor->getNumero()== $resposta) {
+                    return $valor;
+            } 
         }
         return null;
 } 
@@ -47,13 +50,13 @@ do {
             //Cadastrar
             echo "\n---------------PRATOS--------------\n";
             echo "NÚMERO         NOME           VALOR";
-            listar($pratos);
+            listar($pratos,"pratos");
             echo "\n\n";
             $nomeCliente = readline("Informe o nome do cliente: ");
             $nomeGarcom = readline("Informe o nome do garçom: ");
             $prato = null;
             while($prato == null){
-                $prato = busca($pratos,readline("Informe o número do prato: "));
+                $prato = buscaPrato($pratos,readline("Informe o número do prato: "));
             }
             array_push($pedidos, new Pedido($nomeCliente,$nomeGarcom, $prato));
             echo "\n----------PEDIDO CADASTRADO----------\n";
@@ -61,11 +64,11 @@ do {
         case 2:
             //Cancelar
             echo "\n---------------PEDIDOS FEITOS--------------\n";
-            listar($pedidos);
+            listar($pedidos,"pedidos");
             echo "\n";
             $pedido = null;
             while($pedido == null){
-                $pedido = busca($pedidos,readline("Qual o índice do pedido a ser excluido? : "));
+                $pedido = buscaPedido($pedidos,readline("Qual o índice do pedido a ser excluido? : "));
             }
             array_splice($pedidos,$pedido - 1,1);
             echo "\n----------PEDIDO EXCLUIDO----------\n";
@@ -74,7 +77,7 @@ do {
         case 3:
             //Listar
             echo "\n---------------PEDIDOS FEITOS--------------\n";
-            listar($pedidos);
+            listar($pedidos,"pedidos");
             echo "\n";
         break;
         case 4:
