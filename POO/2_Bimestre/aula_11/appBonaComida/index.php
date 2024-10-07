@@ -64,7 +64,7 @@ do {
             listar($pedidos);
             echo "\n";
             $pedido = null;
-            while($prato == null){
+            while($pedido == null){
                 $pedido = busca($pedidos,readline("Qual o índice do pedido a ser excluido? : "));
             }
             array_splice($pedidos,$pedido - 1,1);
