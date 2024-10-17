@@ -15,7 +15,7 @@ class RadioRelogio implements IRadio,IRelogio  {
     }
     public function mostrarHora()
     {
-        echo "HORAAAA ";
+        echo date("H:m:s")."\n";
     }
     /**
      * Get the value of cor
