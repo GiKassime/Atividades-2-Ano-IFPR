@@ -4,7 +4,8 @@ require_once ("IFormaGeometrica.php");
 class Circulo implements IFormaGeometrica{
     private $raio;
     public function getArea(){
-        return  pi()*(pow($this->raio,2)); 
+        $area = pi()*(pow($this->raio,2));
+        return  number_format($area,2); 
     }
     public function getDesenho(){
         

@@ -5,7 +5,7 @@ class Quadrado implements IFormaGeometrica{
     private $lado;
     public function getArea(){
         $area = pow($this->lado,2);
-        return $area; 
+        return number_format($area); 
     }
     /**
      * Get the value of lado

@@ -5,7 +5,8 @@ class Retangulo implements IFormaGeometrica{
     private $base;
     private $altura;
     public function getArea(){
-        return  $this->base*$this->altura; 
+        $area = $this->base*$this->altura;
+        return  number_format($area); 
     }
     public function getDesenho(){
         return  "┌───────────────────┐\n" .
