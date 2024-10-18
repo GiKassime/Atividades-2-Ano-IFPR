@@ -4,35 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            font-size: 250px;
+        }
+    </style>
 </head>
 <body>
-    <button>CLIQUE AQUIIIIIII</button>
+    <button>Iniciar contagem regressiva</button>
     <p></p>
     <input type="text" name="" id="">
-    <h1></h1>
+    <h1>10</h1>
     <script>
-        let numeroCliques = 0
+        let contador = 10
         const botao = document.querySelector('button')
-        const texto = document.querySelector('p')
-        const input = document.querySelector('input')
-        const paragrafo = document.querySelectorAll('h1')
-        botao.onclick = 
+        const paragrafo = document.querySelector('h1')
+        let interval = 
+            setInterval(()=> {
+                paragrafo.innerText = contador;
+                console.log(contador);
+                contador--;
+                if (contador == -1) {
+                    clearInterval(interval)
+                }
+            }, 1000);
+        // document.addEventListener("click", ()=>{
+        //     let bgColor = 'rgb('+Math.random()*255 + ','+Math.random()*255 + ','+Math.random()*255+')'
+        //     document.body.style.backgroundColor = bgColor
+        // })
         // função anonima
-        input.addEventListener('keyup',()=>{
-            let  = input.value;
-            if (textoDigitado == "frango e catupiry") {
-                paragrafo[0].innerText = "MUITO BOM"
-            } else if(textoDigitado == "frango e catupiry"){
-                paragrafo[0].innerText = "MUITO BOM TBM"
-            }else{
-                paragrafo[0].innerText = "TOP"
+        // input.addEventListener('keyup',()=>{
+        //     let textoDigitado = input.value;
+        //     if (textoDigitado == "chocolate") {
+        //         paragrafo.innerText = "Eu amo chocolate"
+        //         document.write("Eu amo chocolate")
 
-            }
-        })
-        botao.addEventListener('click', ()=> {
-            numeroCliques++
-            texto.innerText =  `Você clicou ${numeroCliques} vezes`
-        } )
+        //     } 
+        // })
+        // botao.addEventListener('click', ()=> {
+        //     numeroCliques++
+        //     texto.innerText =  `Você clicou ${numeroCliques} vezes`
+        // } )
     </script>
 </body>
 </html>
