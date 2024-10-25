@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .success {
+            color: green;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulário de Cadastro</h2>
+    <form id="cadastroForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required>
+        <div id="nomeError" class="error"></div>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required>
+        <div id="emailError" class="error"></div>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" required>
+        <div id="senhaError" class="error"></div>
+        <label>
+            <input type="checkbox" id="revealPassword"> Revelar Senha
+        </label>
+
+        <label for="confirmarSenha">Confirmação de Senha:</label>
+        <input type="password" id="confirmarSenha" required>
+        <div id="confirmarSenhaError" class="error"></div>
+
+        <button type="submit">Cadastrar</button>
+        <div id="successMessage" class="success"></div>
+    </form>
+
+    <script>
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+        document.getElementById('revealPassword').addEventListener('change', function() {
+            const senhaInput = document.getElementById('senha');
+            const confirmarSenhaInput = document.getElementById('confirmarSenha');
+            const type = this.checked ? 'text' : 'password';
+            senhaInput.type = type;
+            confirmarSenhaInput.type = type;
+        });
+
+        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+            clearErrors();
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+            if (nome.length < 3) {
+                showError('nomeError', 'O nome deve ter pelo menos 3 caracteres.');
+                isValid = false;
+            }
+
+            if (!emailRegex.test(email)) {
+                showError('emailError', 'E-mail inválido.');
+                isValid = false;
+            }
+
+            if (!senhaRegex.test(senha)) {
+                showError('senhaError', 'A senha deve ter pelo menos 8 caracteres, uma letra maiúscula e um caractere especial.');
+                isValid = false;
+            }
+
+            if (senha !== confirmarSenha) {
+                showError('confirmarSenhaError', 'A confirmação de senha deve ser idêntica à senha.');
+                isValid = false;
+            }
+
+            // Mensagem de sucesso
+            if (isValid) {
+                document.getElementById('successMessage').innerText = 'Cadastro realizado com sucesso!';
+            }
+        });
+
+        function showError(elementId, message) {
+            document.getElementById(elementId).innerText = message;
+        }
+
+        function clearErrors() {
+            document.getElementById('nomeError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('senhaError').innerText = '';
+            document.getElementById('confirmarSenhaError').innerText = '';
+            document.getElementById('successMessage').innerText = '';
+        }
+    </script>
+</body>
+</html>
