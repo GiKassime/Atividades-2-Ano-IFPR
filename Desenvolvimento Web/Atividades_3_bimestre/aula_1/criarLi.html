@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            font-size: 250px;
+        }
+    </style>
+</head>
+<body>
+    <button>CLIQUE AQUI</button>
+    <ul>
+
+    </ul>
+<script>
+        const botao = document.querySelector('button');
+        const lista = document.querySelector('ul');
+
+        botao.addEventListener('click', () => {
+            const novoItem = document.createElement('li');
+            novoItem.textContent = 'Novo Item';
+            lista.appendChild(novoItem);
+        });
+    </script>
+</body>
+</html>
