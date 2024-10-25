@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Nome de Aventura</title>
+    <style>
+        body {
+            background-color: #ffffff; 
+            color: #000000; 
+            transition: background-color 0.5s, color 0.5s; 
+        }
+        body.dark-mode {
+            background-color: #121212; 
+            color: #ffffff; 
+        }
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Nome de Aventura:</h2>
+    <p id="nomeAventura">Clique no botão para gerar um nome de aventura!</p>
+    <button onclick="gerarNome()">Gerar Nome</button>
+    <button onclick="toggleDarkMode()">Alternar Modo Escuro</button>
+
+    <script>
+        const titulos = ["Sr.", "Mister", "Dom", "Lord", "Lady", "Capitão", "Dama"];
+        const nomes = ["Arthur", "Gwendolyn", "Merlin", "Lancelot", "Morgana", "Ragnar", "Éowyn"];
+        const classes = ["Mago", "Paladino", "Arqueiro", "Ladino", "Bárbaro", "Feiticeiro", "Cavaleiro"];
+        const locais = ["Valfenda", "Gondor", "Asgard", "Camelot", "Nárnia", "Babilônia", "Atlantis"];
+
+        function getElementoAleatorio(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function gerarNome() {
+            const titulo = getElementoAleatorio(titulos);
+            const nome = getElementoAleatorio(nomes);
+            const classePersonagem = getElementoAleatorio(classes);
+            const local = getElementoAleatorio(locais);
+
+            const nomeAventura = `${titulo} ${nome}, o ${classePersonagem} de ${local}`;
+            document.getElementById('nomeAventura').innerText = nomeAventura;
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode'); 
+        }
+    </script>
+</body>
+</html>
