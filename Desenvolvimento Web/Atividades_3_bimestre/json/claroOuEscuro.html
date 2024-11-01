@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Nome de Aventura</title>
+    <style>
+        body {
+            background-color: #ffffff; 
+            color: #000000; 
+            transition: background-color 0.5s, color 0.5s; 
+        }
+        body.dark-mode {
+            background-color: #121212; 
+            color: #ffffff; 
+        }
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <div>
+            <input type="text" placeholder="Informe seu nome" id="">
+        </div> 
+        <div>
+            <select name="Tamanho da fonte" id=""></select>
+             
+        </div>
+    </form>
+    <button>Alternar Modo Escuro</button>
+
+    <script>
+        const botao =  document.querySelector('button');
+        botao.addEventListener('click', ()=> {
+
+            if(document.body.classList.contains('dark-mode')){
+                localStorage.setItem('tema', 'tema-claro')
+                document.body.classList.add('tema-claro')
+                document.body.classList.remove('dark-mode')
+
+            }else{
+                localStorage.setItem('tema', 'dark-mode')
+                document.body.classList.remove('tema-claro')
+                document.body.classList.add('dark-mode')
+            }
+        })
+
+        document.addEventListener('DOMContentLoaded', ()=>{
+            const tema = localStorage.getItem('tema');
+            document.body.classList.add(tema); 
+        })
+       
+       
+    </script>
+</body>
+</html>

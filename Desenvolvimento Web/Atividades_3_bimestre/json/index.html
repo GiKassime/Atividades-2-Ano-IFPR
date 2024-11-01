@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let turma = {
+            nome: "Turma A",
+            ano: 2,
+            estudantes: [
+                "João",
+                "Maria",
+                "Pedro"
+            ]
+        }
+
+        let turmaString = JSON.stringify(turma);
+        console.log(turmaString);
+        //localStorage.setItem('chave','valor');
+        //localStorage.setItem('outrachave','valor');
+        let turma2 = localStorage.setItem('turma',  turmaString);
+        turma2 = JSON.parse(turma2);
+        console.log(turma2.ano);
+    </script>
+</body>
+</html>
