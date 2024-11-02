@@ -1,6 +1,6 @@
 /*1 -Crie e gerencie um banco de dados para uma biblioteca com tabelas para Livros,
 Autores e Categorias.*/
-create DATABASE biblioteca;
+create database biblioteca;
 use biblioteca;
 
 /*a) Crie as tabelas Livros, Autores e Categorias com os seguintes campos:
@@ -36,6 +36,10 @@ create table Livro(
 
 alter table Livro add preco decimal(5,2);
 alter table Categoria add quantidade int;
+
+update Categoria set quantidade = 3 where id = 1;
+update Categoria set quantidade = 6 where id = 2;
+update Categoria set quantidade = 5 where id = 3;
 
 /*3. Realize a inserção dos dados nas tabelas criadas:
 a) Insira ao menos 3 registros em cada tabela com dados fictícios.
@@ -81,11 +85,10 @@ anterior a 1950.
 b) Remova a categoria com menos de 5 livros (se o campo quantidade já tiver
 sido preenchido na tabela Categorias).*/
 
-drop Livro where ano_publicacao < 1950;
-
-drop Categoria where quantidade < 5;
+delete from Livro where ano_publicacao < 1950;
+delete from  Categoria where quantidade < 5;
 
 /*6. Realize a remoção de colunas e tabelas:
 a) Delete a coluna quantidade da tabela Categorias.*/
 
-alter table Categorias  drop column quantidade;
+alter table Categoria drop column quantidade;
