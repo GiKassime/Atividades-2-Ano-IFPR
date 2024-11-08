@@ -24,10 +24,10 @@ do {
                             $estrela  = readline("Qual a quantidade de estrelas do hotel (1-5)");
                         } while ($estrela < 1 || $estrela > 5); 
                         do {
-                            $cafe = readline("Tem café incluso? (0-False  ou 1-Sim) : ");
-                        } while ($cafe < 0 or $cafe > 1);
+                            $cafe = readline("Tem café incluso? (1-Sim  ou 2-Não) : ");
+                        } while ($cafe >= 1 or $cafe <= 2);
                         //setto meus valores
-                        $espaco->setCafeIncluso($cafe);
+                        $espaco->setCafeIncluso($cafe == 1);
                         $espaco->setNumeroEstrelas($estrela);
                         break;
                     case 2:
