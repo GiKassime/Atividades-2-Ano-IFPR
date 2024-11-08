@@ -5,7 +5,7 @@ class Hotel extends Espaco {
     private bool $cafeIncluso;
 
     public function getDadosHotel(){
-        
+        return " | Hotel | ".$this->numeroEstrelas ." estrelas e café ". ($this->cafeIncluso ? "incluído" :  "não incluído");
     }
     /**
      * Get the value of numeroEstrelas

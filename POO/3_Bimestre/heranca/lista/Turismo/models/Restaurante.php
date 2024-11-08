@@ -3,7 +3,7 @@ require_once 'Espaco.php';
 class Restaurante extends Espaco {
     private string $tipoComida;
     public function getDadosRestaurante(){
-        
+        return " | Restaurante | Tipo de comida: $this->tipoComida";
     }
     
 
