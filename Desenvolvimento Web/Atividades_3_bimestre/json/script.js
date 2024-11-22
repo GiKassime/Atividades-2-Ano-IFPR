@@ -15,7 +15,6 @@ botao.addEventListener('click', ()=>{
 function adicionarLista(tarefa){
     const novoItem = document.createElement('li');
     novoItem.textContent = tarefa;
-   
     let excluir = document.createElement('button')
     excluir.textContent = 'Excluir'
     excluir.addEventListener('click', ()=>{
