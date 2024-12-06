@@ -1,10 +1,11 @@
 const botaoAdicionar = document.querySelectorAll('.produto-item a')
 const produtoItemNome = document.querySelectorAll('.produto-item h2')
 const produtoItemPreco = document.querySelectorAll('.produto-item .preco')
-
+let contador = document.querySelector('.contador')
 for (let index = 0; index < 4; index++) {
     botaoAdicionar[index].addEventListener('click', (evento) =>{
     evento.preventDefault()//para evitar q o link v apara outra página
+    contador.innerText ++
     let carrinho = obterTodosProdutos()
     let produtoExiste = false
     for (let index = 0; index < carrinho.length; index++) {
