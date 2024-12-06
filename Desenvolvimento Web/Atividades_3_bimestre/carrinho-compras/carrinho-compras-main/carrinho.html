@@ -57,7 +57,13 @@
         </div>
     </main>
     <script src="script.js">
-
+        let carrinho = localStorage.getItem("carrinho")
+        carrinho = JSON.parse(carrinho)
+        elementosNoCarrinho = carrinho.lenght;
+        for (let index = 0; index < elementosNoCarrinho; index++) {
+            criarItemCarrinho()
+            
+        }
         function criarItemCarrinho(){
             const itemCarrinho = document.createElement('div');
             itemCarrinho.classList.add('item-carrinho');
@@ -79,17 +85,21 @@
             const preco = document.createElement('p');
             preco.classList.add('preco');
             preco.textContent = 'R$ 50,00';
-
+            //tem que adiciona saui os bagulho/tag denreo da class
             itemInfo.appendChild(nomeProduto)
             itemInfo.appendChild(preco)
             item.appendChild(itemInfo)
             item.appendChild(itemImg)
+
             const quantidade = document.createElement('label');
             quantidade.textContent = 'Quantidade:';
             const inputQuantidade = document.createElement('input');
             inputQuantidade.type = 'number';
             inputQuantidade.id = 'quantidade';
             inputQuantidade.name = 'quantidade';
+
+            let carrinho = document.querySelector('.carrinho')
+            carrinho.appendChild(itemCarrinho)
         }
     </script>
 
