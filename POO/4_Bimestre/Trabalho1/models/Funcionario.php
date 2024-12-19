@@ -5,6 +5,11 @@ abstract class Funcionario {
     protected float $salarioBase;
     
     abstract public function calculaSalario();
+    abstract public function getCargo();
+    public function __toString()
+    {
+        return "\nO funcionário ".$this->nome.", cargo ".$this->getCargo().", possui salário de R$".number_format($this->calculaSalario(),2,',','.');
+    }
     public function __construct($nome) {
         $this->nome = $nome;
         $this->salarioBase = 1500;
